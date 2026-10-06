@@ -23,3 +23,19 @@ To execute the client, use (once in the client folder, inside the virtual enviro
 ```
 flet run src/main.py
 ```
+
+### Notes on server venv setup and initialization
+
+To set up the server, you have to do the same steps done for the client
+
+### Notes on the server architecture
+
+The server is based on a Feature Based Architecture, which means that every feature will have different folders, with the same kind of files inside. These files are:
+- `models.py`: it contains the classes of the ORM (SQLAlchemy) which define the database's physic tables.
+- `router.py`: it defines the HTTP endpoints for the application.
+- `schemas.py`: it utilizes the library Pydantic to define and validate the datas' format which enter and exit the APIs.
+- `services.py`: it is the brain of the application, with all the rules and algorithms.
+
+Then there is the file for the database, which it doesn't exist on premise, but will grow iteratively during the project developement, thanks to the `models.py` files.
+
+Finally there is the `main.py` file, which simply works as an assembler of the features' routers.
