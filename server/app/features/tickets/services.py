@@ -4,8 +4,8 @@ import datetime
 
 SERVICES_DATA = {
     "SHIPPING": {"tag_name": "SHIPPING", "code": "S", "service_time": 10, "count": 0},
-    "ACCOUNTS": {"tag_name": "SHIPPING", "code": "A", "service_time": 10, "count": 0},
-    "DEPOSIT": {"tag_name": "SHIPPING", "code": "D", "service_time": 10, "count": 0}
+    "ACCOUNTS": {"tag_name": "ACCOUNTS", "code": "A", "service_time": 10, "count": 0},
+    "DEPOSIT": {"tag_name": "DEPOSIT", "code": "D", "service_time": 10, "count": 0}
 }
 
 def get_available_services():
