@@ -2,6 +2,12 @@ import flet as ft
 
 from repository.repo import BaseRepository
 
+
+def generate_code_and_move(service: str):
+	repo: BaseRepository = ft.context.page.repo
+	ticketCode = repo.get_new_ticket(service)
+	ft.context.page.navigate(f"services/{service}/newTicket/{ticketCode}"),
+
 @ft.component
 def TotemView():
     # get the available services and build cards for them
@@ -11,7 +17,7 @@ def TotemView():
         ServiceCard(
             service_name=service,
             on_click=lambda e, srv=service: 
-				ft.context.page.navigate(f"services/{srv}/newTicket"),
+				generate_code_and_move(srv)
         )
         for service in serviceIds
     ]
