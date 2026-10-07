@@ -39,3 +39,8 @@ The server is based on a Feature Based Architecture, which means that every feat
 Then there is the file for the database, which it doesn't exist on premise, but will grow iteratively during the project developement, thanks to the `models.py` files.
 
 Finally there is the `main.py` file, which simply works as an assembler of the features' routers.
+
+To execute the server, use (once in the server folder, inside the virtual enviroment):
+```
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
