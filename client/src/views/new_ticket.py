@@ -13,7 +13,7 @@ def NewTicketView():
 	ticketId = params.get("ticketId")
 
 	# get base url to create qrcode url
-	base_url: str = ft.context.page.base_url
+	base_url: str = ft.context.page.server_url
 	ticketQR_base64 = generate_qrcode_base64(f"http://{base_url}/tickets/{ticketId}")
 
 	# display the ticket code, along a qr code and a button to go back
@@ -23,8 +23,8 @@ def NewTicketView():
 		horizontal_alignment=ft.CrossAxisAlignment.CENTER,
 		controls=[
 			# ft.Text(f"Complete route: {base_url}{ft.use_view_path()}"),
-			ft.Text(f"Here is your ticket for service {serviceId}!"),
-			ft.Text(f"{ticketId}", size=24),
+			ft.Text(f"Here is your ticket for the {serviceId} service:", color=ft.Colors.SECONDARY, weight=ft.FontWeight.BOLD),
+			ft.Text(f"{ticketId}", color=ft.Colors.PRIMARY, size=24),
 			ft.Image(src=ticketQR_base64, width=200, height=200),
 			ft.Button(
 				content="GOT IT",

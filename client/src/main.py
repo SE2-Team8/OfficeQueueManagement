@@ -1,11 +1,12 @@
 import socket
 
 import flet as ft
+from repository.http_repo import HTTPRepository
 from repository.simple_repo import SimpleRepository
 from views.home import HomeView
 from views.totem import TotemView
 from views.new_ticket import NewTicketView
-from views.ticket import TicketView
+# from views.ticket import TicketView
 
 def get_local_ip():
     """Retrieve the primary local IP address on the LAN."""
@@ -20,7 +21,6 @@ def get_local_ip():
         s.close()
     return ip
 
-
 @ft.component
 def App():
     return ft.Router(
@@ -28,15 +28,17 @@ def App():
             ft.Route(path="", component=HomeView),
             ft.Route(path="totem", component=TotemView),
 			ft.Route(path="services/:serviceId/newTicket/:ticketId", component=NewTicketView),
-			ft.Route(path="tickets/:ticketId", component=TicketView),
+			# ft.Route(path="tickets/:ticketId", component=TicketView), # deprecated (ticket page is from server)
         ],
         manage_views=True,
     )
 
 def main(page: ft.Page):
-    page.repo = SimpleRepository()
-    page.base_url = f"{get_local_ip()}:8000"
-    page.theme_mode = ft.ThemeMode.LIGHT
-    page.render_views(App)
+	server_url = f"{get_local_ip()}:8000" # assumes webserver is running on the same machine as the client (temporary)
+	page.server_url = server_url
+	# page.repo = SimpleRepository()
+	page.repo = HTTPRepository(server_url)
+	page.theme_mode = ft.ThemeMode.LIGHT
+	page.render_views(App)
 
 ft.run(main)

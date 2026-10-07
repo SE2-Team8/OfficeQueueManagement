@@ -1,5 +1,6 @@
 import flet as ft
 
+# deprecated
 @ft.component
 def TicketView():
 
