@@ -1,12 +1,21 @@
 from fastapi import HTTPException
 from app.features.tickets import schemas
 import datetime
+from collections import deque
 
 SERVICES_DATA = {
     "SHIPPING": {"tag_name": "SHIPPING", "code": "S", "service_time": 10, "count": 0},
     "ACCOUNTS": {"tag_name": "ACCOUNTS", "code": "A", "service_time": 10, "count": 0},
     "DEPOSIT": {"tag_name": "DEPOSIT", "code": "D", "service_time": 10, "count": 0}
 }
+
+COUNTERS_DATA = {
+    1: {"services": ["SHIPPING", "ACCOUNTS"]},
+    2: {"services": ["DEPOSIT", "SHIPPING"]},
+    3: {"services": ["ACCOUNTS"]},
+}
+
+QUEUES = {tag: deque() for tag in SERVICES_DATA}
 
 def get_available_services():
     return [
@@ -22,13 +31,15 @@ def create_ticket(ticket_in: schemas.TicketCreate) -> schemas.TicketResponse:
         return HTTPException(status_code=404, detail="Service not found")
 
     service["count"] += 1
-
     ticket_code = f"{service['code']}{service['count']}"
-
-    return schemas.TicketResponse(
+    ticket = schemas.TicketResponse(
         id=service["count"],
         code=ticket_code,
         service_type=ticket_in.service_tag,
         issued_at=datetime.datetime.utcnow(),
         status="WAITING"
     )
+
+    QUEUES[ticket_in.service_tag].append(ticket)
+
+    return ticket
