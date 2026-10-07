@@ -2,7 +2,7 @@ import datetime
 import pytest
 from pydantic import ValidationError
 
-from server.app.features.tickets import schemas
+from app.features.tickets import schemas
 
 
 def test_ticket_create_requires_service_tag():

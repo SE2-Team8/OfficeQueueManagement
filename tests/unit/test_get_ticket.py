@@ -1,7 +1,7 @@
 import pytest
 from fastapi import HTTPException
 
-from server.app.features.tickets import schemas, services
+from app.features.tickets import schemas, services
 
 
 # ---------- get_available_services ----------

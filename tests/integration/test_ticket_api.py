@@ -1,10 +1,8 @@
 import datetime
-
 import pytest
 from fastapi.testclient import TestClient
-
-from server.app.main import app
-from server.app.features.tickets import services
+from app.main import app
+from app.features.tickets import services
 
 client = TestClient(app)
 # needed for 404, with actual code produces internal error
@@ -25,14 +23,12 @@ def test_get_services_have_required_fields():
         assert service["service_time"] > 0
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: ACCOUNTS and DEPOSIT have tag_name 'SHIPPING'")
-def test_get_services_tags_are_unique():
+def test_get_services_tags_are_unique():    #BUG: ACCOUNTS and DEPOSIT have tag_name 'SHIPPING'
     tags = [s["tag_name"] for s in client.get("/tickets/services").json()]
     assert len(tags) == len(set(tags))
 
 
-@pytest.mark.xfail(strict=True, reason="BUG: ACCOUNTS and DEPOSIT have tag_name 'SHIPPING'")
-def test_get_services_returns_expected_tags():
+def test_get_services_returns_expected_tags():  #BUG: ACCOUNTS and DEPOSIT have tag_name 'SHIPPING'
     tags = [s["tag_name"] for s in client.get("/tickets/services").json()]
     assert sorted(tags) == ["ACCOUNTS", "DEPOSIT", "SHIPPING"]
 
@@ -91,7 +87,6 @@ def test_ticket_codes_are_unique_across_office():
 
 # ---------- Errors ----------
 
-@pytest.mark.xfail(strict=True, reason="BUG: 'return HTTPException' instead of 'raise' -> 500 instead of 404")
 def test_create_ticket_unknown_service_returns_404():
     response = client_no_raise.post("/tickets/", json={"service_tag": "UNKNOWN"})
     assert response.status_code == 404

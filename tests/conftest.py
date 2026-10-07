@@ -1,5 +1,5 @@
 import pytest
-from server.app.features.tickets import services
+from app.features.tickets import services
 
 
 @pytest.fixture(autouse=True)
