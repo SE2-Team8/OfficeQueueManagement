@@ -1,4 +1,5 @@
 import flet as ft
+from repository.simple_repo import SimpleRepository
 from views.home import HomeView
 from views.totem import TotemView
 from views.ticket import TicketView
@@ -15,6 +16,8 @@ def App():
     )
 
 def main(page: ft.Page):
+    page.repo = SimpleRepository()
+    page.theme_mode = ft.ThemeMode.LIGHT
     page.render_views(App)
 
 ft.run(main)
