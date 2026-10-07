@@ -24,6 +24,12 @@ To execute the client, use (once in the client folder, inside the virtual enviro
 flet run src/main.py
 ```
 
+To execute the client as a web server where each customer can connect in a LAN, use (once in the client folder, inside the virtual enviroment):
+```
+flet run --web --host 0.0.0.0 --port 8000 src/main.py
+```
+(for now port 8000 is also hard-coded in some portions of the code, so keep it 8000)
+
 ### Notes on server venv setup and initialization
 
 To set up the server, you have to do the same steps done for the client
