@@ -44,6 +44,9 @@ def create_ticket(ticket_in: schemas.TicketCreate) -> schemas.TicketResponse:
 
     return ticket
 
+def get_counters():
+    return [{"id": cid, "services": c["services"]} for cid, c in COUNTERS_DATA.items()]
+
 def call_next(counter_id: int) -> schemas.NextCustomerResponse | None:
     counter = COUNTERS_DATA.get(counter_id)
     if counter is None:

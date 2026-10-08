@@ -3,6 +3,10 @@ from app.features.tickets import schemas, services
 
 router = APIRouter(prefix="/counters", tags=["Counters"])
 
+@router.get("/")
+def list_counters():
+    return services.get_counters()
+
 @router.post(
     "/{counter_id}/next",
     response_model=schemas.NextCustomerResponse,
