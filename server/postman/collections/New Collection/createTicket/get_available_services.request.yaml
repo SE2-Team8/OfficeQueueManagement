@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{urlbase}}:{{port}}/tickets/services"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |+
+      pm.test("Successfull Request", function(){
+          pm.response.to.have.status(200);
+      })
+
+      pm.test("Validate Keys",function(){
+          const json = pm.response.json();
+          json.forEach (function (item,_){
+              pm.expect(item).to.have.all.keys("tag_name","service_time")
+          })
+      })
+
+    language: text/javascript
+order: 1791455449454
