@@ -2,10 +2,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 # from app.core.database import engine, Base # currently makes the program crash
 
-# Importa i router delle feature
+# import feature's routers
 from app.features.tickets.router import router as tickets_router
+from app.features.counters.router import router as counters_router
 
-# Crea le tabelle nel database
+# create db tab
 # Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Office Queue Management API")
@@ -18,5 +19,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Registrazione dei router delle singole feature
+# register single feature's router
 app.include_router(tickets_router)
+app.include_router(counters_router)
