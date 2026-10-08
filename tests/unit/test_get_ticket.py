@@ -51,6 +51,8 @@ def test_create_ticket_unknown_service_raises_404():
 
 
 def test_create_ticket_unknown_service_does_not_consume_a_number():
-    services.create_ticket(schemas.TicketCreate(service_tag="NOPE"))
+    with pytest.raises(HTTPException):
+        services.create_ticket(schemas.TicketCreate(service_tag="NOPE"))
+
     ticket = services.create_ticket(schemas.TicketCreate(service_tag="SHIPPING"))
     assert ticket.code == "S1"

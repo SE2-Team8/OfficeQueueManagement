@@ -22,7 +22,7 @@ def create_ticket(ticket_in: schemas.TicketCreate) -> schemas.TicketResponse:
     service = SERVICES_DATA.get(ticket_in.service_tag)
 
     if not service:
-        return HTTPException(status_code=404, detail="Service not found")
+        raise HTTPException(status_code=404, detail="Service not found")
 
     service["count"] += 1
     ticket_code = f"{service['code']}{service['count']}"
