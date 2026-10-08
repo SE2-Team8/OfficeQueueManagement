@@ -21,8 +21,11 @@ pip install -r requirements.txt
 
 To execute the client, use (once in the client folder, inside the virtual enviroment):
 ```
-flet run src/main.py
+flet run src/main.py [server_url]
 ```
+server_url can also be directly specified as `server_ip:server_port`. If this argument is not provided, the client will assume that 
+the server is running on the same machine, on port 8000. When specified, it should not be 127.0.0.1, localhost nor 0.0.0.0 even if 
+the server is running on the same machine as the client, as this url is forwarded to other devices in order to reach the server.
 
 ### Notes on server venv setup and initialization
 
