@@ -25,7 +25,7 @@ def NewTicketView():
 			# ft.Text(f"Complete route: {base_url}{ft.use_view_path()}"),
 			ft.Text(f"Here is your ticket for the {serviceId} service:", color=ft.Colors.SECONDARY, weight=ft.FontWeight.BOLD),
 			ft.Text(f"{ticketId}", color=ft.Colors.PRIMARY, size=24),
-			ft.Image(src=ticketQR_base64, width=200, height=200),
+			ft.Image(src=ticketQR_base64, key="qrcode", width=200, height=200),
 			ft.Button(
 				content="GOT IT",
 				on_click=lambda: ft.context.page.navigate("totem"),
