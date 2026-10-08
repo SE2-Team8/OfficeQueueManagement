@@ -23,12 +23,12 @@ def test_get_services_have_required_fields():
         assert service["service_time"] > 0
 
 
-def test_get_services_tags_are_unique():    #BUG: ACCOUNTS and DEPOSIT have tag_name 'SHIPPING'
+def test_get_services_tags_are_unique():   
     tags = [s["tag_name"] for s in client.get("/tickets/services").json()]
     assert len(tags) == len(set(tags))
 
 
-def test_get_services_returns_expected_tags():  #BUG: ACCOUNTS and DEPOSIT have tag_name 'SHIPPING'
+def test_get_services_returns_expected_tags(): 
     tags = [s["tag_name"] for s in client.get("/tickets/services").json()]
     assert sorted(tags) == ["ACCOUNTS", "DEPOSIT", "SHIPPING"]
 

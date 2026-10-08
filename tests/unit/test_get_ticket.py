@@ -17,7 +17,7 @@ def test_get_available_services_exposes_only_tag_and_time():
         assert set(item.keys()) == {"tag_name", "service_time"}
 
 
-def test_get_available_services_tags_are_unique():  #BUG: ACCOUNTS e DEPOSIT have tag_name 'SHIPPING'
+def test_get_available_services_tags_are_unique():  
     tags = [s["tag_name"] for s in services.get_available_services()]
     assert len(tags) == len(set(tags))
 
