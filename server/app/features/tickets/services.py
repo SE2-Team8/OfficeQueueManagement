@@ -43,3 +43,28 @@ def create_ticket(ticket_in: schemas.TicketCreate) -> schemas.TicketResponse:
     QUEUES[ticket_in.service_tag].append(ticket)
 
     return ticket
+
+def call_next(counter_id: int) -> schemas.NextCustomerResponse | None:
+    counter = COUNTERS_DATA.get(counter_id)
+    if counter is None:
+        raise HTTPException(status_code=404, detail="Counter not found")
+
+    # only non-empty queues between those served in this counter
+    candidates = [tag for tag in counter["services"] if QUEUES[tag]]
+    if not candidates:
+        return None
+
+    tag = min(
+        candidates,
+        key=lambda t: (-len(QUEUES[t]), SERVICES_DATA[t]["service_time"]),
+    )
+
+    ticket = QUEUES[tag].popleft()  #ticket picked from the queue
+    ticket.status = "SERVED"
+
+    return schemas.NextCustomerResponse(
+        ticket_code=ticket.code,
+        service_type=tag,
+        counter_id=counter_id,
+        queue_length=len(QUEUES[tag])
+    )
