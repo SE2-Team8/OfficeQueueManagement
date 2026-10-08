@@ -1,0 +1,17 @@
+[project]
+name = "office-queue-client"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "flet",
+    "flet[test]",
+    "qrcode[pil]",
+    "requests",
+]
+
+[tool.flet.app]
+path = "src"
+module = "main"
+
+[tool.flet.flutter.pubspec.dependency_overrides]
+jni_flutter = "1.0.3"
