@@ -16,10 +16,4 @@ class TicketResponse(BaseModel):
     status: str
 
     class Config:
-        from_attribute = True
-
-class NextCustomerResponse(BaseModel):
-    ticket_code: str
-    service_type: str
-    counter_id: int
-    queue_length: int  
+        from_attribute = True  

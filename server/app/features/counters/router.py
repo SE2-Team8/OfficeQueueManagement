@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Response
-from app.features.tickets import schemas, services
+from app.features.counters import schemas, services
+from typing import List
 
 router = APIRouter(prefix="/counters", tags=["Counters"])
 
