@@ -1,0 +1,22 @@
+$kind: http-request
+url: "{{urlbase}}:{{port}}/tickets/"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "service_tag" : "SHIPPING"
+    }
+scripts:
+  - type: afterResponse
+    code: |
+      pm.test("Successfull request",function(){
+          pm.response.to.have.status(201)
+      })
+
+      pm.test("Validate Format",function(){
+          const json = pm.response.json();
+          pm.expect(json).to.have.keys("id","code","service_type","issued_at","status")
+      })
+    language: text/javascript
+order: 3400251055384967
