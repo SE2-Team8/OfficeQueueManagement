@@ -9,12 +9,6 @@ SERVICES_DATA = {
     "DEPOSIT": {"tag_name": "DEPOSIT", "code": "D", "service_time": 10, "count": 0}
 }
 
-COUNTERS_DATA = {
-    1: {"services": ["SHIPPING", "ACCOUNTS"]},
-    2: {"services": ["DEPOSIT", "SHIPPING"]},
-    3: {"services": ["ACCOUNTS"]},
-}
-
 QUEUES = {tag: deque() for tag in SERVICES_DATA}
 
 def get_available_services():
@@ -28,7 +22,7 @@ def create_ticket(ticket_in: schemas.TicketCreate) -> schemas.TicketResponse:
     service = SERVICES_DATA.get(ticket_in.service_tag)
 
     if not service:
-        return HTTPException(status_code=404, detail="Service not found")
+        raise HTTPException(status_code=404, detail="Service not found")
 
     service["count"] += 1
     ticket_code = f"{service['code']}{service['count']}"
@@ -43,31 +37,3 @@ def create_ticket(ticket_in: schemas.TicketCreate) -> schemas.TicketResponse:
     QUEUES[ticket_in.service_tag].append(ticket)
 
     return ticket
-
-def get_counters():
-    return [{"id": cid, "services": c["services"]} for cid, c in COUNTERS_DATA.items()]
-
-def call_next(counter_id: int) -> schemas.NextCustomerResponse | None:
-    counter = COUNTERS_DATA.get(counter_id)
-    if counter is None:
-        raise HTTPException(status_code=404, detail="Counter not found")
-
-    # only non-empty queues between those served in this counter
-    candidates = [tag for tag in counter["services"] if QUEUES[tag]]
-    if not candidates:
-        return None
-
-    tag = min(
-        candidates,
-        key=lambda t: (-len(QUEUES[t]), SERVICES_DATA[t]["service_time"]),
-    )
-
-    ticket = QUEUES[tag].popleft()  #ticket picked from the queue
-    ticket.status = "SERVED"
-
-    return schemas.NextCustomerResponse(
-        ticket_code=ticket.code,
-        service_type=tag,
-        counter_id=counter_id,
-        queue_length=len(QUEUES[tag])
-    )
