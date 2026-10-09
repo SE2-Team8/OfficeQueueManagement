@@ -9,10 +9,9 @@ body:
     }
 scripts:
   - type: afterResponse
-    code: |+
+    code: |
       pm.test("Service not found",function(){
           pm.response.to.have.status(404)
       })
-
     language: text/javascript
 order: 4037500684516612
