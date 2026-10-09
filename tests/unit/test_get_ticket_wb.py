@@ -17,6 +17,3 @@ def test_create_ticket_for_a_wrong_service():
 def test_create_valid_ticket():
     ticket = create_ticket(schemas.TicketCreate(service_tag="SHIPPING"))
     assert ticket in QUEUES["SHIPPING"]
-
-
-    
