@@ -34,7 +34,7 @@ def call_next(counter_id: int) -> schemas.NextCustomerResponse | None:
     )
 
     ticket = queues[tag].popleft()  #ticket picked from the queue
-    ticket.status = "SERVED"
+    ticket.status = "CALLED"
 
     return schemas.NextCustomerResponse(
         ticket_code=ticket.code,

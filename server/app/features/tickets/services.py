@@ -5,8 +5,8 @@ from collections import deque
 
 SERVICES_DATA = {
     "SHIPPING": {"tag_name": "SHIPPING", "code": "S", "service_time": 10, "count": 0},
-    "ACCOUNTS": {"tag_name": "ACCOUNTS", "code": "A", "service_time": 10, "count": 0},
-    "DEPOSIT": {"tag_name": "DEPOSIT", "code": "D", "service_time": 10, "count": 0}
+    "ACCOUNTS": {"tag_name": "ACCOUNTS", "code": "A", "service_time": 15, "count": 0},
+    "DEPOSIT": {"tag_name": "DEPOSIT", "code": "D", "service_time": 5, "count": 0}
 }
 
 QUEUES = {tag: deque() for tag in SERVICES_DATA}
