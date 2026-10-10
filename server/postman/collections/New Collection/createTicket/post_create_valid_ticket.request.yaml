@@ -17,6 +17,7 @@ scripts:
       pm.test("Validate Format",function(){
           const json = pm.response.json();
           pm.expect(json).to.have.keys("id","code","service_type","issued_at","status")
+          pm.environment.set("ticket_code",json.code)
       })
     language: text/javascript
 order: 3400251055384967
