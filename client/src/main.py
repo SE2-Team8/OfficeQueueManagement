@@ -7,6 +7,7 @@ from repository.simple_repo import SimpleRepository
 from views.home import HomeView
 from views.totem import TotemView
 from views.new_ticket import NewTicketView
+from views.counter import ChoiceCounterView, CounterView
 # from views.ticket import TicketView
 
 def get_local_ip():
@@ -29,6 +30,8 @@ def App():
 			ft.Route(path="", component=HomeView),
 			ft.Route(path="totem", component=TotemView),
 			ft.Route(path="services/:serviceId/newTicket/:ticketId", component=NewTicketView),
+			ft.Route(path="counters", component= ChoiceCounterView),
+			ft.Route(path="counters/:counterId", component = CounterView)
 			# ft.Route(path="tickets/:ticketId", component=TicketView), # deprecated (ticket page is from server)
 		],
 		manage_views=True,

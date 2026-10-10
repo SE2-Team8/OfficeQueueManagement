@@ -14,7 +14,9 @@ def HomeView():
                 on_click=lambda: ft.context.page.navigate("/totem"),
             ),
             # TODO: other buttons on_click
-			ft.Button("Counter"),
+			ft.Button(
+                "Counter",
+                on_click= lambda: ft.context.page.navigate("/counters")),
 			ft.Button("Screen"),
         ],
     )

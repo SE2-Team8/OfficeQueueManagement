@@ -28,3 +28,18 @@ class HTTPRepository(BaseRepository):
 		data = response.json()
 		# print(data)
 		return [item['tag_name'] for item in data]
+
+	def get_num_counter(self) -> list[int]:
+		response = requests.get(f"http://{self.remote_host}/counters/")
+		response.raise_for_status()
+		data = response.json()
+		return[item['id']for item in data]
+
+	def post_next_customer(self, counterId):
+		response = requests.post(f"http://{self.remote_host}/counters/{counterId}/next")
+		response.raise_for_status()
+		if response.status_code == 204:
+			return "No customer in queue"
+		data = response.json()
+		return data["ticket_code"]
+	
