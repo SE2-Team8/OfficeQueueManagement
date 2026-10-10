@@ -32,21 +32,6 @@ def test_get_counters_ids_are_unique():
 
 ### call_next ###
 
-# Fixture to clean and prepare the state before every test
-@pytest.fixture(autouse=True)
-def setup_queues():
-    ticket_services.QUEUES = {
-        "SHIPPING": deque(),
-        "ACCOUNTS": deque(),
-        "DEPOSIT": deque()
-    }
-    ticket_services.SERVICES_DATA = {
-        "SHIPPING": {"service_time": 10},
-        "ACCOUNTS": {"service_time": 15},
-        "DEPOSIT": {"service_time": 5}
-    }
-    yield
-
 def test_call_next_invalid_counter_raises_404():
     with pytest.raises(HTTPException) as exc:
         services.call_next(99)
