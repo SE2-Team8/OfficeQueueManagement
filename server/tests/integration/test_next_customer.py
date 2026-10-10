@@ -36,13 +36,13 @@ def test_next_customer_success():
 
 def test_next_customer_longest_queue_success():
     client.post("/tickets/", json={"service_tag": "SHIPPING"})
-    client.post("/tickets/", json={"service_tag": "SHIPPING"})
+    client.post("/tickets/", json={"service_tag": "ACCOUNTS"})
     client.post("/tickets/", json={"service_tag": "ACCOUNTS"})
 
     resp = client.post("counters/1/next")
     body = resp.json()
 
-    assert body["service_type"] == "SHIPPING"
+    assert body["service_type"] == "ACCOUNTS"
 
 def test_next_customer_shortest_service_time_success():
     client.post("/tickets/", json={"service_tag": "SHIPPING"})
