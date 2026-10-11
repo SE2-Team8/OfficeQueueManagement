@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{urlbase}}:{{port}}/tickets/{{ticket_code}}"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |+
+      pm.test("Successful request", function(){
+          pm.response.to.have.status(200)
+      })
+
+      pm.test("Valid Content in HTML", function(){
+          text = pm.response.text()
+          pm.expect(text).to.include("<html>")
+          pm.expect(text).to.match(/<div class="code">[SAD]\d+/)
+      })
+
+    language: text/javascript
+order: 4488015252048143
