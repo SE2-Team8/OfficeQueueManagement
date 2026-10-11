@@ -4,9 +4,9 @@ from app.features.counters import schemas
 from app.features.tickets import services as tickets_services
 
 COUNTERS_DATA = {
-    1: {"services": ["SHIPPING", "ACCOUNTS"]},
-    2: {"services": ["DEPOSIT", "SHIPPING"]},
-    3: {"services": ["ACCOUNTS"]},
+    1: {"services": ["SHIPPING", "ACCOUNTS", "DEPOSIT"]},
+    2: {"services": ["SHIPPING", "ACCOUNTS", "DEPOSIT"]},
+    3: {"services": ["SHIPPING", "ACCOUNTS", "DEPOSIT"]},
 }
 
 def get_counters() -> list[dict]:

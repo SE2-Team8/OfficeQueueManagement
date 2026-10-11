@@ -20,7 +20,6 @@ def test_get_counters_right_fields():
         assert isinstance(counter["services"], list)
         assert isinstance(counter["services"][0], str)
 
-
 ### POST /counters/{counter_id}/next
 
 def test_next_customer_success():
@@ -62,14 +61,6 @@ def test_next_customer_wrong_counter_id():
     assert resp.json()["detail"] == "Counter not found"
 
 def test_next_customer_empty_queue():
-    resp = client.post("/counters/1/next")
-
-    assert resp.status_code == 204
-    assert resp.text == ""
-
-def test_next_customer_not_in_counter_services():
-    client.post("/tickets/", json={"service_tag": "DEPOSIT"})
-
     resp = client.post("/counters/1/next")
 
     assert resp.status_code == 204
