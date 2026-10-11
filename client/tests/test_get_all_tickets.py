@@ -2,7 +2,7 @@ import pytest
 import flet.testing as ftt
 
 @pytest.mark.asyncio
-async def test_button_existence(flet_app: ftt.FletTestApp):
+async def test_get_all_tickets(flet_app: ftt.FletTestApp):
     tester = flet_app.tester
 
     await tester.pump_and_settle()

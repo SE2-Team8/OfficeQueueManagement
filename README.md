@@ -14,7 +14,7 @@ On windows, once you are in the correct client folder, it should roughly be:
 ```
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+pip install .
 ```
 
 ### Notes on client execution
@@ -27,9 +27,23 @@ server_url can also be directly specified as `server_ip:server_port`. If this ar
 the server is running on the same machine, on port 8000. When specified, it should not be 127.0.0.1, localhost nor 0.0.0.0 even if 
 the server is running on the same machine as the client, as this url is forwarded to other devices in order to reach the server.
 
+
+### Notes on client testing
+
+On Windows, developer mode needs to be turned on. Once in the client folder, use
+```
+flet test
+```
+to execute all tests inside the /tests subfolder
+
 ### Notes on server venv setup and initialization
 
-To set up the server, you have to do the same steps done for the client
+To set up the server, you have to do
+```
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
 
 ### Notes on the server architecture
 
