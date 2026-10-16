@@ -60,7 +60,7 @@ in the next sprint.
   - Total hours estimated: 10h
   - Total hours spent: 11h
   - Number of test cases: ?
-  - Coverage: 100% (pytest results below)
+  - Coverage: 99% (pytest results below)
 
 
 - Unit Testing:
@@ -96,14 +96,13 @@ in the next sprint.
 
 ---
 ### Pytest coverage results
-|Name|                                          Stmts|   Miss|  Cover|
-|----|-----------------------------------------------|-------|-------|
-|tests\conftest.py|                                12|      0|   100%|
-|tests\integration\test_next_customer_api.py|      45|      0|   100%|
-|tests\integration\test_ticket_api.py|             61|      0|   100%|
-|tests\unit\test_get_ticket.py|                    36|     0|   100%|
-|tests\unit\test_get_ticket_wb.py|                 12|      0|  100%|
-|tests\unit\test_next_customer.py|                 43|      0|   100%|
-|tests\unit\test_next_customer_wb.py|             116|      0|   100%|
-|tests\unit\test_schemas.py|                       26|      0|   100%|
-|TOTAL|                                           351|      0|   100%|
+|Name|                                Stmts|   Miss|  Cover|
+|----|-------------------------------------|-------|----|
+|app\features\counters\router.py|        13|      0|   100%|
+|app\features\counters\schemas.py|       10|      0|   100%|
+|app\features\counters\services.py|      19|      0|   100%|
+|app\features\tickets\router.py|         16|      2|    88%|
+|app\features\tickets\schemas.py|        15|      0|   100%|
+|app\features\tickets\services.py|       17|      0|   100%|
+|app\main.py|                             8|      0|   100%|
+|TOTAL|                                  98  |   2   |98%|
