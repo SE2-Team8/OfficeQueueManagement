@@ -60,7 +60,7 @@ in the next sprint.
   - Total hours estimated: 10h
   - Total hours spent: 11h
   - Number of test cases: ?
-  - Coverage: 100%
+  - Coverage: 100% (pytest results below)
 
 
 - Unit Testing:
@@ -94,8 +94,8 @@ in the next sprint.
 - One thing you are proud of as a Team!!
 
 
-
-
+---
+### Pytest coverage results
 |Name|                                          Stmts|   Miss|  Cover|
 |----|-----------------------------------------------|-------|-------|
 |tests\conftest.py|                                12|      0|   100%|
