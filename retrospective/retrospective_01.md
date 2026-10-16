@@ -38,22 +38,19 @@ sections:
 
 - Hours per task average, standard deviation (estimate and actual)
 
-|            | Mean | StDev |
-|------------|------|-------|
-| Estimation |      |       | 
-| Actual     |      |       |
+|            |  Mean  | StDev |
+|------------|--------|-------|
+| Estimation |  2.250 | 2.005 | 
+| Actual     |  1.801 | 1.885 |
 
-- Total estimation error ratio: sum of total hours spent / sum of total hours effort - 1
+- Total estimation error ratio: sum of total hours spent / sum of total hours effort - 1: `-0.11`
 
     $$\frac{\sum_i spent_{task_i}}{\sum_i estimation_{task_i}} - 1$$
-  
-  Total estimation error ratio: -0.11
-    
-- Absolute relative task estimation error: sum( abs( spent-task-i / estimation-task-i - 1))/n
+
+- Absolute relative task estimation error: sum( abs( spent-task-i / estimation-task-i - 1))/n: `0.30`
 
     $$\frac{1}{n}\sum_i^n \left| \frac{spent_{task_i}}{estimation_task_i}-1 \right| $$
 
-  
 ## QUALITY MEASURES 
 
 For the first sprint, the team didn't keep track time separately for unit and E2E testing. This is a problem that will be fixed
