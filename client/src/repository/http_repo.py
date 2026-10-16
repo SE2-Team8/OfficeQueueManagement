@@ -39,7 +39,7 @@ class HTTPRepository(BaseRepository):
 		response = requests.post(f"http://{self.remote_host}/counters/{counterId}/next")
 		response.raise_for_status()
 		if response.status_code == 204:
-			return "No customer in queue"
+			return "No Customers in queue"
 		data = response.json()
 		return data["ticket_code"]
 	
