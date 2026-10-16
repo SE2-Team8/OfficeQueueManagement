@@ -95,3 +95,18 @@ in the next sprint.
 > Propose one or two
 
 - One thing you are proud of as a Team!!
+
+
+
+
+|Name|                                          Stmts|   Miss|  Cover|
+|----|-----------------------------------------------|-------|-------|
+|tests\conftest.py|                                12|      0|   100%|
+|tests\integration\test_next_customer_api.py|      45|      0|   100%|
+|tests\integration\test_ticket_api.py|             61|      0|   100%|
+|tests\unit\test_get_ticket.py|                    36|     0|   100%|
+|tests\unit\test_get_ticket_wb.py|                 12|      0|  100%|
+|tests\unit\test_next_customer.py|                 43|      0|   100%|
+|tests\unit\test_next_customer_wb.py|             116|      0|   100%|
+|tests\unit\test_schemas.py|                       26|      0|   100%|
+|TOTAL|                                           351|      0|   100%|
