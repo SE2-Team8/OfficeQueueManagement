@@ -1,4 +1,4 @@
-TEMPLATE FOR RETROSPECTIVE (Team ##)
+TEMPLATE FOR RETROSPECTIVE (Team 8)
 =====================================
 
 The retrospective should include _at least_ the following
@@ -60,7 +60,7 @@ in the next sprint.
   - Total hours estimated: 10h
   - Total hours spent: 11h
   - Number of test cases: ?
-  - Coverage: 99% (pytest results below)
+  - Coverage: 100% (pytest results combined with coverage run below)
 
 
 - Unit Testing:
@@ -73,8 +73,8 @@ in the next sprint.
   - Total hours spent
   - Nr of test cases
 - Code review 
-  - Total hours estimated 
-  - Total hours spent  
+  - Total hours estimated: 2h
+  - Total hours spent: 1h
 
 
 ## ASSESSMENT
@@ -95,14 +95,6 @@ in the next sprint.
 
 
 ---
-### Pytest coverage results
-|Name|                                Stmts|   Miss|  Cover|
-|----|-------------------------------------|-------|----|
-|app\features\counters\router.py|        13|      0|   100%|
-|app\features\counters\schemas.py|       10|      0|   100%|
-|app\features\counters\services.py|      19|      0|   100%|
-|app\features\tickets\router.py|         16|      2|    88%|
-|app\features\tickets\schemas.py|        15|      0|   100%|
-|app\features\tickets\services.py|       17|      0|   100%|
-|app\main.py|                             8|      0|   100%|
-|TOTAL|                                  98  |   2   |98%|
+### Coverage results
+Coverage run results have been combined with pytest ones using `coverage combine` to account for API, UI and server tests.
+![coverage test image](./img_md/test_coverage.png)
