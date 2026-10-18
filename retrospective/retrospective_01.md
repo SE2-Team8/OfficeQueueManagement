@@ -80,18 +80,42 @@ in the next sprint.
 ## ASSESSMENT
 
 - What caused your errors in estimation (if any)?
+  - Since this was our first sprint, we overestimated the setup tasks, which went smoother than expected.
+  - We considered the backend and frontend more difficult than they actually were, and underestimated the time needed for frontend testing, since we had to learn how to test it.
+  - We were working with some new technologies, and some tasks had inaccurate estimates as a result.
 
 - What lessons did you learn (both positive and negative) in this sprint?
+  - Positive
+    - Keeping most of the tasks small made daily progress easy to track.
+    - Time tracking turned out to be less of a chore and more helpful as a self-assessment tool than I thought.
+    - A good task division and assignment were achieved.
 
-- Which improvement goals set in the previous retrospective were you able to achieve? 
+  - Negative
+    - Logging all test activities under a single generic task (instead of separating unit testing from E2E testing) prevented us from accurately tracking how much effort went into each layer for the quality measures report.
+    - The high standard deviation in task hours indicates that some tasks were quick and atomic, while others grouped too much work together.
+    - It is better to split backend testing into integration and unit testing for better estimation.
+    - When coordinating work within a week, the different lecture times of team members made it hard to assign tasks in a way that made working hours feasible.
+    - By relying on task effort and estimates, quality sometimes decreased as a result (there was a tendency not to exceed the estimated time, so the most basic version possible was considered OK).
+
+- Which improvement goals set in the previous retrospective were you able to achieve?
+  - N/A
   
 - Which ones you were not able to achieve? Why?
+  - N/A
 
 - Improvement goals for the next sprint and how to achieve them (technical tasks, team coordination, etc.)
-
-> Propose one or two
+  - Track unit testing and E2E testing effort and test counts separately. We can achieve this during the next sprint planning by creating distinct subtasks for every story, explicitly labeled "Unit Test" and "E2E Test", rather than using a single generic task.
+  - Reduce task estimation errors and task-size variance. We can achieve this by using Sprint 1's actual hours as a calibration base and breaking down tasks estimated to take too many hours into smaller subtasks.
+  - Don't try to assign every task to contributors perfectly at the beginning. It is better to adjust task assignments during the sprint according to the actual time spent.
+  - Improve quality, especially in testing, by setting an internal standard for the number of test cases and by having better test structures for the frontend.
+  - Better prepare for the demo, for example, by deciding in advance who will present each part. Having an internal demo beforehand could also help.
 
 - One thing you are proud of as a Team!!
+  - Delivering 100% of our committed stories and story points.
+  - Successful team coordination despite the absence of a team member.
+  - Very good teamwork, together with excellent communication every evening via WhatsApp. This led to completing the planned work.
+  - We completed all the functionalities we set out to deliver, even while working with different and new technologies and under a tight schedule.
+  - We all helped each other to reach a common objective.
 
 
 ---
