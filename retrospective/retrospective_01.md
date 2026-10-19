@@ -110,5 +110,5 @@ in the next sprint.
 
 ---
 ### Coverage results
-Coverage run results have been combined with pytest ones using `coverage combine` to account for API, UI and server tests.
+Coverage run results have been combined with pytest ones using to account API, UI and server tests.
 ![coverage test image](./img_md/test_coverage.png)
