@@ -53,25 +53,15 @@ sections:
 
 ## QUALITY MEASURES 
 
-For the first sprint, the team didn't keep track time separately for unit and E2E testing. This is a problem that will be fixed
+For the first sprint, the team didn't keep track time separately for unit, integration and E2E testing. This is a problem that will be fixed
 in the next sprint.
 
 - Testing:
   - Total hours estimated: 10h
   - Total hours spent: 11h
-  - Number of test cases: ?
+  - Number of test cases: 71
   - Coverage: 100% (pytest results combined with coverage run below)
 
-
-- Unit Testing:
-  - Total hours estimated: 
-  - Total hours spent
-  - Nr of automated unit test cases 
-  - Coverage
-- E2E testing:
-  - Total hours estimated
-  - Total hours spent
-  - Nr of test cases
 - Code review 
   - Total hours estimated: 2h
   - Total hours spent: 1h
