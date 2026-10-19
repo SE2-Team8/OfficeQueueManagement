@@ -77,11 +77,11 @@ in the next sprint.
 - What lessons did you learn (both positive and negative) in this sprint?
   - Positive
     - Keeping most of the tasks small made daily progress easy to track.
-    - Time tracking turned out to be less of a chore and more helpful as a self-assessment tool than I thought.
+    - Time tracking turned out to be less of a chore and more helpful as a self-assessment tool than we thought.
     - A good task division and assignment were achieved.
 
   - Negative
-    - Logging all test activities under a single generic task (instead of separating unit testing from E2E testing) prevented us from accurately tracking how much effort went into each layer for the quality measures report.
+    - Logging all test activities under a single generic task (instead of separating them) prevented us from accurately tracking how much effort went into each layer for the quality measures report.
     - The high standard deviation in task hours indicates that some tasks were quick and atomic, while others grouped too much work together.
     - It is better to split backend testing into integration and unit testing for better estimation.
     - When coordinating work within a week, the different lecture times of team members made it hard to assign tasks in a way that made working hours feasible.
@@ -94,7 +94,7 @@ in the next sprint.
   - N/A
 
 - Improvement goals for the next sprint and how to achieve them (technical tasks, team coordination, etc.)
-  - Track unit testing and E2E testing effort and test counts separately. We can achieve this during the next sprint planning by creating distinct subtasks for every story, explicitly labeled "Unit Test" and "E2E Test", rather than using a single generic task.
+  - Track unit, integration and E2E testing effort and test counts separately. We can achieve this during the next sprint planning by creating distinct subtasks for every story, explicitly labeled "Unit Test", "Integration Test" and "E2E Test", rather than using a single generic task.
   - Reduce task estimation errors and task-size variance. We can achieve this by using Sprint 1's actual hours as a calibration base and breaking down tasks estimated to take too many hours into smaller subtasks.
   - Don't try to assign every task to contributors perfectly at the beginning. It is better to adjust task assignments during the sprint according to the actual time spent.
   - Improve quality, especially in testing, by setting an internal standard for the number of test cases and by having better test structures for the frontend.
